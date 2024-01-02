@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECHINNOV-USTHB-ADMIN</title>
+
+  <!-- Include the Firebase SDK scripts with type="module" in the head -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"></script>
+  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+  <link rel="stylesheet" href="Admin.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/tableexport@5.2.0/dist/js/tableexport.min.js"></script>
+<!-- Load the tableexport library -->
+
+<!-- Load the js-xlsx library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">TECHINNOV-USTHB-ADMIN</a>
+
+    <i class='bx bx-menu-alt-left' id="menu-icon"></i> 
+
+    <nav class="navbar" id="navbarid">
+        <a href="ADMIN_home.html">Home</a>
+        <a href="Admin_user_members.html">All Members</a>
+        <a href="Admin_userProjects.html">All Projects</a>
+        <a href="#"class="active">Review</a>
+        <a href="#" class="btn delete" id="logoutBtn"> Logout </a>
+    </nav>
+</header>
+
+  <section class="table-container" id="resultData" style="display: none;">
+
+    <div class="search-bar">
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" oninput="searchUsers()" placeholder="Enter name or matricule or mail">
+    </div>
+    <h2 id="nbprt"></h2>
+    <h2 id="reviewIsImpty" style="color: rgb(255, 120, 120); margin: 10px; display: none;">there is no request.</h2>
+
+
+
+    <div class="table_bg">
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>N*</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>names</th>
+            <th>lastnames</th>
+            <th>role</th>
+            <th>ID</th>
+            <th>email</th>
+            <th>Phone Number</th>
+            <th>faculty</th>
+            <th>Request</th>            
+            <th>Action</th>            
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="cs-loader-inner" id="loader" style="display: block;">
+      <label>	●</label>
+      <label>	●</label>
+      <label>	●</label>
+      <label>	●</label>
+  </div>
+
+
+    
+  </section>
+
+  <section class="home" id="home_user_login_filed" style="display: none;">
+    <div class="home-content_user_home">
+        <div class="content_statu">
+            <h3>Error: User Not Connected</h1>
+
+            <h3>
+              We're sorry, but it seems like you are not connected. Please log in to access this page.  <a href="Admin_login.html"><span>login</span></a>
+            </h3>
+
+        </div>
+    </div>
+
+
+</section> 
+
+  
+
+  <script type="module" src="Admin_user_review.js"></script>
+  <script>
+           //nav bar
+ let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () =>{
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+  </script>
+
+
+
+</body>
+</html>

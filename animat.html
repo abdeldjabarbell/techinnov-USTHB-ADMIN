@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dot Animation</title>
+
+</head>
+<body>
+  <div class="bg">
+
+  </div>
+
+
+
+
+
+
+
+
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #262e26;
+    }
+
+    .dotWrapper {
+      position: absolute;
+      animation: flying 20s ease-in-out infinite alternate;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      background: rgba(38, 255, 0, 0.588);
+      border-radius: 50%;
+      animation: rotating 2s ease-in-out infinite;
+    }
+
+    @keyframes rotating {
+      0% {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+      25%, 75% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes flying {
+      0% {
+        transform: translate(0, 0);
+      }
+      10% {
+        transform: translate(20px, 50px);
+      }
+      20% {
+        transform: translate(-30px, 10px);
+      }
+      30% {
+        transform: translate(10px, 60px);
+      }
+      40% {
+        transform: translate(50px, 0px);
+      }
+      50% {
+        transform: translate(-10px, -40px);
+      }
+      60% {
+        transform: translate(-40px, 20px);
+      }
+      70% {
+        transform: translate(30px, -30px);
+      }
+      80% {
+        transform: translate(0px, -60px);
+      }
+      90% {
+        transform: translate(40px, 10px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  </style>
+
+    <!-- Dot Wrappers -->
+    <script>
+        for (let i = 1; i <= 75; i++) {
+          const dotWrapper = document.createElement("div");
+          dotWrapper.className = `dotWrapper dotWrapper-${i}`;
+          const dot = document.createElement("div");
+          dot.className = `dot dot-${i}`;
+          dotWrapper.appendChild(dot);
+          document.querySelector(".bg").appendChild(dotWrapper);
+  
+          // Apply dynamic styles
+          dotWrapper.style.top = `${Math.random() * 100}%`;
+          dotWrapper.style.left = `${Math.random() * 100}%`;
+  
+          // Apply individual animation delays
+          dot.style.animationDelay = `${Math.random() * 5}s`;
+        }
+      </script>
+
+</body>
+</html>

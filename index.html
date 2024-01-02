@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible"content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="stylesheet" href="Admin.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <title>TECHINNOV-USTHB-ADMIN-LOGIN</title>
+  </head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">TECHINNOV-USTHB & ADMIN</a>
+
+        <i class='bx bx-menu-alt-left' id="menu-icon"></i> 
+
+        <nav class="navbar" id="navbarid">
+
+
+        </nav>
+    </header>
+
+    <section class="bg">
+
+
+
+        <div class="login_register">
+    
+            <div class="login">
+
+                <form id="login-form">
+                    <h1>Login to your <span>TECHINNOV-ADMIN</span> account</h1>
+                    <h1></h1>
+                    <br><br>
+
+                    <div class="input-box inputs">
+
+                        <input type="text" id="email_login_admin" placeholder=" Admin ID" required>
+
+                        <input type="password" id="password_login_admin" placeholder=" password" required>
+                    </div> <br> 
+
+
+    
+                    <button type="submit" value="login" class="btn nav" id="submit_login" style="overflow: hidden;">
+
+                        <div class="cs-loader-original" id="original" style="display: block;">
+                            Login
+                        </div>
+                        <div class="cs-loader-inner" id="loader" style="display: none; color: white;">
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                        </div>
+                        <div class="cs-loader-inner" id="Done" style="display: none;">
+                            Done
+                        </div>
+
+                    </button>
+                    <br><br>
+                    <div class="errorTextSuccfully" id="messagelogin"></div>
+                    <div class="errorText" id="messagelogin2"></div>
+
+
+            
+                </form >
+
+                <form id="password-reset-form" style="display: none;">
+                    <h1>Hello <span>Admin !</span></h1>
+
+                    <h1>Recover your <span>password</span></h1>
+                    <h1></h1>
+                    <br><br>
+                    <div class="input-box recoverPassword">
+                        <input type="email" id="Email_reser" placeholder="your mail" required>
+                    </div>
+                    <div class="input-box">
+                        <p>I don't want to recover my password. <a href="#" id="passwordForget_Cansel_btn"><span>return !</span></a></p>
+
+                    </div>
+                    <button class="btn nav" type="submit" id="recoverNow">
+                        
+                        <div class="cs-loader-original" id="original1" style="display: block;">
+                            Reset Password
+                        </div>
+                        <div class="cs-loader-inner" id="loader1" style="display: none;">
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                        </div>
+                        <div class="cs-loader-inner" id="Done1" style="display: none;">
+                            Done
+                        </div>
+                    </button><br><br>
+                    <p class="errorText" id="messageRegister11"></p>
+                    <p class="errorTextSuccfully" id="messageRegister22"></p>
+
+                
+                  </form>
+               </div>
+
+        </div>
+
+        <div class="register_login_photo">
+            <div class="anime-section">
+                <div class="rotate-aniation">
+                    <div class="inner-rotate-class"></div>
+                    <i id="fontAnimation" class="fab fa-css3"></i>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy;2024 by abdeldjabar bellakhdar .Right Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+
+        </div>
+    </footer>
+
+
+    <style>
+        .btn.nav.registering{
+          overflow: hidden;
+          align-items: center;
+          justify-content: center;
+          background: #3d3b4a;
+          
+        }
+
+        
+        .cs-loader-inner {
+          position: relative;
+          width: 100%;
+          color: rgb(0, 255, 238);
+          padding: 0;
+          text-align: center;
+        }
+
+.cs-loader-inner label {
+  font-size: 16px;
+  opacity: 0;
+  display:inline-block;
+}
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-65px);
+  }
+  33% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(65px);
+  }
+}
+
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+  }
+}
+
+.cs-loader-inner label:nth-child(6) {
+  -webkit-animation: lol 1.5s infinite ease-in-out;
+  animation: lol 1.5s infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(5) {
+  -webkit-animation: lol 1.5s 100ms infinite ease-in-out;
+  animation: lol 1.5s 100ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(4) {
+  -webkit-animation: lol 1.5s 200ms infinite ease-in-out;
+  animation: lol 1.5s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(3) {
+  -webkit-animation: lol 1.5s 300ms infinite ease-in-out;
+  animation: lol 1.5s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(2) {
+  -webkit-animation: lol 1.5s 400ms infinite ease-in-out;
+  animation: lol 1.5s 400ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(1) {
+  -webkit-animation: lol 1.5s 500ms infinite ease-in-out;
+  animation: lol 1.5s 500ms infinite ease-in-out;
+} 
+    </style>
+
+
+
+
+    <script src="index.js"></script>
+    <script src="admin_login.js" type="module"></script>
+
+
+
+
+
+
+
+        
+    </body>
+
+</html>
+

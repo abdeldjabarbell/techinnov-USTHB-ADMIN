@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Added space between X-UA-Compatible and content -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="stylesheet" href="Admin.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <title>TECHINNOV-USTHB-ADMIN</title>
+
+
+    <!-- ... (other links) ... -->
+
+
+
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">TECHINNOV-USTHB & ADMIN</a>
+
+        <i class='bx bx-menu-alt-left' id="menu-icon"></i> 
+
+        <nav class="navbar" id="navbarid">
+            <a href="#"class="active">Home</a>
+            <a href="Admin_user_members.html">All Members</a>
+            <a href="Admin_userProjects.html">All Projects</a>
+            <a href="Admin_user_review.html">Review</a>
+            <a href="#" class="btn delete" id="logoutBtn"> Logout </a>
+        </nav>
+    </header>
+
+    <section class="bg" id="contentAdmin" style="display: none; flex-direction: row; justify-content: center; align-items: center;">
+        
+        <div class="login_register">
+
+            <div id="container" style="display: flex; flex-direction: column;">
+                <h3 style="font-size: 3rem; font-weight: 800;">Wellcome your <span>TECHINNOV-ADMIN</span> account</h1>
+<br><br>
+                <h2 id="docCount">Document Count: Loading...</h2> 
+                <input type="text" id="textinput1" placeholder="Enter UID"> <br>
+                <textarea id="textinput2" name="text" rows="5" cols="40" placeholder="Enter your Text" required></textarea><br>
+
+                <button class="btn export" onclick="saveToFirebase()" style="width: 20%;">share</button>
+            </div>
+        </div>
+    
+        <div class="register_login_photo">
+            <div class="anime-section">
+                <div class="rotate-aniation">
+                    <div class="inner-rotate-class"></div>
+                    <i id="fontAnimation" class="fab fa-css3"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="home" id="home_user_login_filed" style="display: none;">
+        <div class="home-content_user_home">
+            <div class="content_statu">
+                <h3>Error: User Not Connected</h1>
+    
+                <h3>
+                  We're sorry, but it seems like you are not connected. Please log in to access this page.  <a href="Admin_login.html"><span>login</span></a>
+                </h3>
+    
+            </div>
+        </div>
+    
+    
+    </section> 
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy;2024 by abdeldjabar bellakhdar .Right Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+
+        </div>
+    </footer>
+
+
+    <style>
+        .btn.nav.registering{
+          overflow: hidden;
+          align-items: center;
+          justify-content: center;
+          background: #3d3b4a;
+          
+        }
+
+        
+        .cs-loader-inner {
+          position: relative;
+          width: 100%;
+          color: rgb(0, 255, 238);
+          padding: 0;
+          text-align: center;
+        }
+
+.cs-loader-inner label {
+  font-size: 16px;
+  opacity: 0;
+  display:inline-block;
+}
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-65px);
+  }
+  33% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(65px);
+  }
+}
+
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+  }
+}
+
+.cs-loader-inner label:nth-child(6) {
+  -webkit-animation: lol 1.5s infinite ease-in-out;
+  animation: lol 1.5s infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(5) {
+  -webkit-animation: lol 1.5s 100ms infinite ease-in-out;
+  animation: lol 1.5s 100ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(4) {
+  -webkit-animation: lol 1.5s 200ms infinite ease-in-out;
+  animation: lol 1.5s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(3) {
+  -webkit-animation: lol 1.5s 300ms infinite ease-in-out;
+  animation: lol 1.5s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(2) {
+  -webkit-animation: lol 1.5s 400ms infinite ease-in-out;
+  animation: lol 1.5s 400ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(1) {
+  -webkit-animation: lol 1.5s 500ms infinite ease-in-out;
+  animation: lol 1.5s 500ms infinite ease-in-out;
+} 
+    </style>
+
+  <!-- Add Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore-compat.js"></script>
+
+
+  <script type="module" src="ADMIN_home.js"></script>
+
+
+  <script> 
+  
+    // Initialize Firebase with your configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAYg-YrUR7wyGJwOkbJQw8112CdYNkq0oU",
+      authDomain: "ssp-website-586d2.firebaseapp.com",
+      projectId: "ssp-website-586d2",
+      storageBucket: "ssp-website-586d2.appspot.com",
+      messagingSenderId: "374411443744",
+      appId: "1:374411443744:web:c9685e3085e6377903c645"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the Firestore database
+    const db = firebase.firestore();
+
+    // Function to save data to Firebase
+    function saveToFirebase() {
+  // Get input values
+  const uidValue = document.getElementById('textinput1').value;
+  const dataValue = document.getElementById('textinput2').value;
+
+  // Set the data under the specified UID in the 'text' collection
+  db.collection('text').doc(uidValue).set({
+    news: dataValue,
+    time: firebase.firestore.FieldValue.serverTimestamp(), // Use serverTimestamp
+
+  })
+  .then(() => {
+    console.log('Document written with ID: ', uidValue);
+    alert('Data saved successfully!');
+    updateDocCount();
+  })
+  .catch((error) => {
+    console.error('Error adding document: ', error);
+    alert('Error saving data. Please try again.');
+  });
+}
+
+    // Function to update document count
+    function updateDocCount() {
+      // Get a reference to the 'text' collection
+      const textCollection = db.collection('text');
+
+      // Get the documents in the collection and update the count
+      textCollection.get()
+        .then((querySnapshot) => {
+          const docCount = querySnapshot.size;
+          document.getElementById('docCount').innerHTML  = `Document Count    : <span> ${docCount}</span>`;
+        })
+        .catch((error) => {
+          console.error('Error getting documents: ', error);
+        });
+    }
+
+    // Update document count initially
+    updateDocCount();
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+//background dots animation and number
+for (let i = 1; i <= 75; i++) {
+    const dotWrapper = document.createElement("div");
+    dotWrapper.className = `dotWrapper dotWrapper-${i}`;
+    const dot = document.createElement("div");
+    dot.className = `dot dot-${i}`;
+    dotWrapper.appendChild(dot);
+    document.querySelector(".bg").appendChild(dotWrapper);
+
+    // Apply dynamic styles
+    dotWrapper.style.top = `${Math.random() * 100}%`;
+    dotWrapper.style.left = `${Math.random() * 100}%`;
+
+    // Apply individual animation delays
+    dot.style.animationDelay = `${Math.random() * 5}s`;
+  }
+
+
+
+
+
+
+
+
+
+
+    // carte incubation
+
+  const speed = 4.5;
+  const r = gsap.timeline({ repeat: -1 });
+  const o = gsap.timeline({ repeat: -1 });
+  const h = gsap.timeline({ repeat: -1 });
+  
+  r.to("#app", {
+      "--r": "180deg",
+      "--p": "0%",
+      duration: speed,
+      ease: "sine.in"
+  });
+  r.to("#app", {
+      "--r": "360deg",
+      "--p": "100%",
+      duration: speed,
+      ease: "sine.out"
+  });
+  o.to("#app", {
+      "--o": 1,
+      duration: speed/2,
+      ease: "power1.in"
+  });
+  o.to("#app", {
+      "--o": 0,
+      duration: speed/2,
+      ease: "power1.out"
+  });
+  
+  h.to("#app", {
+      "--h": "100%",
+      duration: speed/2,
+      ease: "sine.in"
+  });
+  h.to("#app", {
+      "--h": "50%",
+      duration: speed/2,
+      ease: "sine.out"
+  });
+  h.to("#app", {
+      "--h": "0%",
+      duration: speed/2,
+      ease: "sine.in"
+  });
+  h.to("#app", {
+      "--h": "50%",
+      duration: speed/2,
+      ease: "sine.out"
+  });
+  
+  
+  
+  </script>
+</body>
+</html>
