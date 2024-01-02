@@ -41,7 +41,7 @@ auth.onAuthStateChanged((user) => {
          home_user_login_filed.style.display="block";
           // Sign out the user or take appropriate actions
           auth.signOut();
-           window.location.replace("Admin_login.html");
+           window.location.replace("index.html");
 
     }
   } else {
