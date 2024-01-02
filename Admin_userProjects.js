@@ -233,7 +233,7 @@ const logoutBtn = document.getElementById('logoutBtn');
 logoutBtn.addEventListener('click', () => {
   // Sign out the user
   signOut(auth).then(() => {
-    window.location.replace("Admin_login.html");
+    window.location.replace("index.html");
 
     // Redirect or perform other actions after logout
     console.log('User signed out');
