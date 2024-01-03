@@ -56,3 +56,81 @@ loginForm.addEventListener("submit", async (e) => {
   }
 });
 
+
+
+//background dots animation and number
+for (let i = 1; i <= 75; i++) {
+  const dotWrapper = document.createElement("div");
+  dotWrapper.className = `dotWrapper dotWrapper-${i}`;
+  const dot = document.createElement("div");
+  dot.className = `dot dot-${i}`;
+  dotWrapper.appendChild(dot);
+  document.querySelector(".bg").appendChild(dotWrapper);
+
+  // Apply dynamic styles
+  dotWrapper.style.top = `${Math.random() * 100}%`;
+  dotWrapper.style.left = `${Math.random() * 100}%`;
+
+  // Apply individual animation delays
+  dot.style.animationDelay = `${Math.random() * 5}s`;
+}
+
+
+
+
+
+
+
+
+
+
+  // carte incubation
+
+const speed = 4.5;
+const r = gsap.timeline({ repeat: -1 });
+const o = gsap.timeline({ repeat: -1 });
+const h = gsap.timeline({ repeat: -1 });
+
+r.to("#app", {
+    "--r": "180deg",
+    "--p": "0%",
+    duration: speed,
+    ease: "sine.in"
+});
+r.to("#app", {
+    "--r": "360deg",
+    "--p": "100%",
+    duration: speed,
+    ease: "sine.out"
+});
+o.to("#app", {
+    "--o": 1,
+    duration: speed/2,
+    ease: "power1.in"
+});
+o.to("#app", {
+    "--o": 0,
+    duration: speed/2,
+    ease: "power1.out"
+});
+
+h.to("#app", {
+    "--h": "100%",
+    duration: speed/2,
+    ease: "sine.in"
+});
+h.to("#app", {
+    "--h": "50%",
+    duration: speed/2,
+    ease: "sine.out"
+});
+h.to("#app", {
+    "--h": "0%",
+    duration: speed/2,
+    ease: "sine.in"
+});
+h.to("#app", {
+    "--h": "50%",
+    duration: speed/2,
+    ease: "sine.out"
+});
