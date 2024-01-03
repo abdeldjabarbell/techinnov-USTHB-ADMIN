@@ -1104,7 +1104,12 @@ cursor: pointer;
 
 
 @media (max-width:1200px){
-
+    .login_register input{
+    width:90vw;  
+         }
+        .login_register textarea{
+    width:90vw;  
+         }
     html{
         font-size: 55%;
     }
